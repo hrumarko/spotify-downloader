@@ -1,0 +1,17 @@
+{% extends 'download_spotify/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Топ песен</h1>
+    {% for char in chart %}
+    <form method='POST'>
+      {% csrf_token %}
+      {{ char.title}}
+    <input type="hidden" name="id" value={{char.id_video}}>
+    <br>
+    <button name="chart" type="submit" class="btn-finish">Скачать</button>
+    </form>
+    <br>
+    <hr>
+    {% endfor %}
+
+{% endblock content %}

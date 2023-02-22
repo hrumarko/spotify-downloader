@@ -1,4 +1,20 @@
 {% extends 'download_spotify/base.html' %}
+{% load static %}
 {% block content %}
-<h1>Hello</h1>
+<div class="cntnt">
+  <div class="mx-auto">
+    <h1 class='mt-1'>Загрузка трека из Spotify</h1>
+    <form action="" method='POST'>
+      {% csrf_token %}
+      {{ form.title }}
+      {{ form.title.errors }}
+      <br>
+      {{ form.captcha }}
+      {{ for.captcha.errors }}
+      <button name="newfile" type="submit" class="download-btn btn btn-primary btn-lg btn-block mt-1" style="width: 100%">Скачать</button>
+      <div class="spinner hide"></div>
+    </form>
+  </div>
+</div>
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock content %}
